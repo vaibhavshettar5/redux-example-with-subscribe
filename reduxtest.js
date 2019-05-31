@@ -9,11 +9,11 @@ const myReducer = (state = initialState, action) => { //creating reducers
     const newState = {...state};
 
     if(action.type === 'ADD'){
-        newState.age += 1;
+        newState.age += action.val;
     }
 
     if(action.type === 'SUBSTRACT'){
-        newState.age -= 1;
+        newState.age -= action.val;
     }
     return newState;
 }
@@ -25,10 +25,10 @@ store.subscribe(()=>{
     console.log("state"+JSON.stringify(store.getState()));    
 })
 
-store.dispatch({type: 'ADD'}); //creating action(type is one action we can take val) and dispatch
+store.dispatch({type: 'ADD', val : 10 }); //creating action(type is one action we can take val) and dispatch
 
-store.dispatch({type: 'ADD'});
+store.dispatch({type: 'ADD', val: 5 });
 
-store.dispatch({type: 'SUBSTRACT'});
+store.dispatch({type: 'SUBSTRACT', val: 2});
 
-store.dispatch({type: 'ADD'});
+store.dispatch({type: 'ADD', val: 6});
